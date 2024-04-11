@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Up Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="sendCloseMessage()">
+<h1>Step Up Result</h1>
+<p>
+
+</p>
+<button id="closeBtn">Close</button>
+
+<script>
+    function sendCloseMessage() {
+        window.parent.postMessage({ type: 'closePopup' , data: PLACEHOLDER}, '*');
+    }
+
+    const closeBtn = document.getElementById('closeBtn');
+    closeBtn.addEventListener('click', sendCloseMessage);
+</script>
+</body>
+</html>
