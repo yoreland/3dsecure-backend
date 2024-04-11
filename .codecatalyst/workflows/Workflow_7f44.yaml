@@ -29,6 +29,7 @@ Actions:
       Steps:
         - Run: echo "Hello, World!"
         - Run: aws --version
+        - Run: aws ecr-public get-login-password --region us-east-1
         - Run: aws ecr-public get-login-password --region us-east-1 | docker login
             --username AWS --password-stdin public.ecr.aws/t2j4v1l9
         - Run: echo Build started on `date`
