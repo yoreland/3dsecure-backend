@@ -27,9 +27,8 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
-        - Run: echo "Hello, World!"
+        - Run: echo "start image building!"
         - Run: aws --version
-        - Run: aws ecr-public get-login-password --region us-east-1
         - Run: aws ecr-public get-login-password --region us-east-1 | docker login
             --username AWS --password-stdin public.ecr.aws/t2j4v1l9
         - Run: echo Build started on `date`
@@ -42,3 +41,8 @@ Actions:
         Image: CodeCatalystLinux_x86_64:2024_03
     Compute:
       Type: EC2
+    Environment:
+      Connections:
+        - Role: CodeCatalystWorkflowDevelopmentRole-yoreland
+          Name: "077090643075"
+      Name: test
