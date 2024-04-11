@@ -28,6 +28,7 @@ Actions:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
         - Run: echo "start image building!"
+        - Run: mvn install
         - Run: aws --version
         - Run: aws ecr-public get-login-password --region us-east-1 | docker login
             --username AWS --password-stdin public.ecr.aws/t2j4v1l9
