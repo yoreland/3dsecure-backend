@@ -33,8 +33,9 @@ Actions:
             --username AWS --password-stdin public.ecr.aws/t2j4v1l9
         - Run: echo Build started on `date`
         - Run: echo Building the Docker image...
-        - Run: docker build -t 3dsbackend:latest .
-        - Run: docker push 3dsbackend:latest
+        - Run: docker build -t 3ds .
+        - Run: docker tag 3ds:latest public.ecr.aws/t2j4v1l9/3ds:latest
+        - Run: docker push public.ecr.aws/t2j4v1l9/3ds:latest
       Container:
         Registry: CODECATALYST
         Image: CodeCatalystLinux_x86_64:2024_03
